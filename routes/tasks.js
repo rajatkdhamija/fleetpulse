@@ -1,4 +1,5 @@
 import express from "express";
+import { requireAuth } from "../middleware/auth.js";
 import {
   createTask,
   getAllTasks,
@@ -8,6 +9,8 @@ import {
 } from "../controllers/taskController.js";
 
 const router = express.Router();
+
+router.use(requireAuth);
 
 router.post("/", createTask);
 router.get("/", getAllTasks);
