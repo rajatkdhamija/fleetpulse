@@ -1,5 +1,6 @@
 import express from "express";
 import taskRoutes from "./routes/tasks.js";
+import { errorHandler } from "./middleware/errorHandler.js"
 
 const app = express();
 const PORT = 3000;
@@ -11,6 +12,7 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/tasks", taskRoutes);
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`FleetPulse backend running on port ${PORT}`);
