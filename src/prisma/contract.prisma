@@ -6,3 +6,10 @@ model Task {
   lng       Float?
   createdAt TimestamptzString @default(now())
 }
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  createdAt    TimestamptzString @default(now())
+}
