@@ -1,0 +1,8 @@
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  status    String   @default("pending")
+  lat       Float?
+  lng       Float?
+  createdAt TimestamptzString @default(now())
+}
